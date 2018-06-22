@@ -1,0 +1,22 @@
+python finetune_v1_centerloss.py \
+--logs_base_dir ../logs/ \
+--pretrained_model ../model/facenet/20180408-102900/model-20180408-102900.ckpt-90 \
+--models_base_dir ../model/facenet/ \
+--checkpoint_exclude_scopes Logits \
+--data_dir ../data/star_face_new/ \
+--image_size 160 \
+--batch_size 128 \
+--model_def models.inception_resnet_v1 \
+--optimizer ADAM \
+--learning_rate 0 \
+--learning_rate_schedule_file learning_rate_schedule.txt \
+--max_nrof_epochs 500 \
+--keep_probability 0.8 \
+--random_crop \
+--random_flip \
+--use_fixed_image_standardization \
+--weight_decay 5e-4 \
+--embedding_size 512 \
+--validation_set_split_ratio 0.05 \
+--validate_every_n_epochs 1 \
+--prelogits_norm_loss_factor 5e-4
